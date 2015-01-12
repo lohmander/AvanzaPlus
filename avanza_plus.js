@@ -9,6 +9,7 @@ window.onload = function () {
                 }).eq(0).closest('table');
 
                 $('<th><a href="javascript:void(0);" class="noWrap">Andel %</a></th>').insertAfter($stockTable.find('th').eq(2)).css('width', 30);
+                $('<td>' + $.trim($stockTable.find('caption .allocation').text().split(':')[1]) + '</td>').insertAfter($stockTable.find('tfoot td').eq(0));
 
                 $stockTable.find('tr.clientSortedRow')
                 .each(function () {
@@ -25,4 +26,3 @@ window.onload = function () {
         populateTable('fonder', marketTotalValue);
     })();
 };
-
