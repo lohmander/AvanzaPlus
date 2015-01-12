@@ -1,0 +1,26 @@
+{
+  "name": "AvanzaPlus",
+  "version": "0.0.1",
+  "description": "Lägger till en rad praktiska funktioner till Avanzas hemsida",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lohmander/AvanzaPlus.git"
+  },
+  "keywords": [
+    "Avanza"
+  ],
+  "author": "Hannes Lohmander",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lohmander/AvanzaPlus/issues"
+  },
+  "homepage": "https://github.com/lohmander/AvanzaPlus",
+  "devDependencies": {
+    "gulp-concat": "~2.4.3",
+    "gulp": "~3.8.10"
+  }
+}

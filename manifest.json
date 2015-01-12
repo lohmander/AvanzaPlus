@@ -1,12 +1,12 @@
 {
   "name": "Avanza+",
   "description": "Makes Avanza a bit better",
-  "version": "2.0",
-  "web_accessible_resources": ["avanza_plus.js"],
+  "version": "0.0.1",
+  "web_accessible_resources": ["/avzplus.concat.js"],
   "content_scripts": [
     {
       "matches": ["https://www.avanza.se/mina-sidor/kontooversikt.*"],
-      "js": ["injector.js"]
+      "js": ["index.js"]
     }
   ],
   "manifest_version": 2
