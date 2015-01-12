@@ -1,4 +1,5 @@
 AvanzaPlus.onPageLoad('/mina-sidor/kontooversikt.*', function () {
+    // -----------------------------------------------------------
     // STOCK SHARE OF TOTAL HOLDINGS
     var addShareToTable = function (table, marketTotal) {
         var tableShare = $.trim(table.find('caption .allocation').text().split(':')[1]),
@@ -12,7 +13,8 @@ AvanzaPlus.onPageLoad('/mina-sidor/kontooversikt.*', function () {
         table.find('tr.clientSortedRow').each(function () {
             var $row = $(this),
                 marketValue = AvanzaPlus.cleanParsedNum($row.find('> td').eq(8).text()),
-                td = '<td>' + AvanzaPlus.round(marketValue / marketTotal * 100, 2) + '</td>';
+                share = AvanzaPlus.round(marketValue / marketTotal * 100, 2),
+                td = '<td>' + share + '</td>';
 
             $(td).insertAfter($row.find('td').eq(2));
         });

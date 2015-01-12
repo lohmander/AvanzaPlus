@@ -5,6 +5,10 @@ var AvanzaPlus = (function () {
         return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);
     };
 
+    AP.prototype.randomNum = function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
     AP.prototype.getValueTable = function (caption) {
         return $('caption h2').filter(function () {
             var tableCap = $(this).text().toLowerCase(),
@@ -32,9 +36,15 @@ var AvanzaPlus = (function () {
         }
     };
 
+    AP.prototype.getRandomColor = function () {
+        var colors = ['#577AA6', '#009640', '#FDC55A'];
+        return colors[this.randomNum(0, colors.length - 1)];
+    };
+
     return new AP();
 })();
 AvanzaPlus.onPageLoad('/mina-sidor/kontooversikt.*', function () {
+    // -----------------------------------------------------------
     // STOCK SHARE OF TOTAL HOLDINGS
     var addShareToTable = function (table, marketTotal) {
         var tableShare = $.trim(table.find('caption .allocation').text().split(':')[1]),
@@ -48,7 +58,8 @@ AvanzaPlus.onPageLoad('/mina-sidor/kontooversikt.*', function () {
         table.find('tr.clientSortedRow').each(function () {
             var $row = $(this),
                 marketValue = AvanzaPlus.cleanParsedNum($row.find('> td').eq(8).text()),
-                td = '<td>' + AvanzaPlus.round(marketValue / marketTotal * 100, 2) + '</td>';
+                share = AvanzaPlus.round(marketValue / marketTotal * 100, 2),
+                td = '<td>' + share + '</td>';
 
             $(td).insertAfter($row.find('td').eq(2));
         });

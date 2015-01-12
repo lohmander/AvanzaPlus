@@ -1,0 +1,12 @@
+.avzplus__chart {
+  width: 100%;
+  height: 3rem;
+  background: #F5F5F5; }
+  .avzplus__chart__piece {
+    box-sizing: border-box;
+    float: left;
+    height: 3rem;
+    background: #009640;
+    text-align: center;
+    line-height: 3rem;
+    color: #fff; }

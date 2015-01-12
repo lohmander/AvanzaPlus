@@ -21,6 +21,7 @@
   "homepage": "https://github.com/lohmander/AvanzaPlus",
   "devDependencies": {
     "gulp-concat": "~2.4.3",
-    "gulp": "~3.8.10"
+    "gulp": "~3.8.10",
+    "gulp-sass": "~1.2.4"
   }
 }

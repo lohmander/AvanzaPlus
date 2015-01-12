@@ -6,7 +6,8 @@
   "content_scripts": [
     {
       "matches": ["https://www.avanza.se/mina-sidor/kontooversikt.*"],
-      "js": ["index.js"]
+      "js": ["index.js"],
+      "css": ["avzplus.css"]
     }
   ],
   "manifest_version": 2
