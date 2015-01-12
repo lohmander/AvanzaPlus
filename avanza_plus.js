@@ -8,14 +8,14 @@ window.onload = function () {
                     return ($(this).text().toLowerCase() === name.toLowerCase());
                 }).eq(0).closest('table');
 
-                $('<th><a href="javascript:void(0);" class="noWrap">Andel %</a></th>').insertAfter($stockTable.find('th').eq(2)).css('width', 30);
+                $('<th data-sorter="commaDigit"><a href="javascript:void(0);" class="noWrap">Andel %</a></th>').insertAfter($stockTable.find('th').eq(2)).css('width', 30);
                 $('<td>' + $.trim($stockTable.find('caption .allocation').text().split(':')[1]) + '</td>').insertAfter($stockTable.find('tfoot td').eq(0));
 
                 $stockTable.find('tr.clientSortedRow')
                 .each(function () {
                     var $row = $(this),
                         marketValue = parseInt($row.find('> td').eq(8).text().replace(/\s/g, ''), 10);
-                    $('<td>' + niceRound(marketValue / marketTotal * 100, 2) + '</td>').insertAfter($row.find('td').eq(2));
+                    $('<td>' + niceRound(marketValue / marketTotal * 100, 2).toString().replace('.', ',') + '</td>').insertAfter($row.find('td').eq(2));
 
                 });
             };
@@ -24,5 +24,7 @@ window.onload = function () {
 
         populateTable('aktier', marketTotalValue);
         populateTable('fonder', marketTotalValue);
+
+        $('.headerSortUp, .headerSortDown').trigger('click').trigger('click');
     })();
 };
