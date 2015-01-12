@@ -13,7 +13,7 @@ AvanzaPlus.onPageLoad('/mina-sidor/kontooversikt.*', function () {
         table.find('tr.clientSortedRow').each(function () {
             var $row = $(this),
                 marketValue = AvanzaPlus.cleanParsedNum($row.find('> td').eq(8).text()),
-                share = AvanzaPlus.round(marketValue / marketTotal * 100, 2),
+                share = AvanzaPlus.toCommaDecimal(AvanzaPlus.round(marketValue / marketTotal * 100, 2)),
                 td = '<td>' + share + '</td>';
 
             $(td).insertAfter($row.find('td').eq(2));
