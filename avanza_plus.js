@@ -8,7 +8,7 @@ window.onload = function () {
                     return ($(this).text().toLowerCase() === name.toLowerCase());
                 }).eq(0).closest('table');
 
-                $('<th>Andel</th>').insertAfter($stockTable.find('th').eq(2)).css('width', 30);
+                $('<th><a href="javascript:void(0);" class="noWrap">Andel</a></th>').insertAfter($stockTable.find('th').eq(2)).css('width', 30);
 
                 $stockTable.find('tr.clientSortedRow')
                 .each(function () {
