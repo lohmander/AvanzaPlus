@@ -8,13 +8,13 @@ window.onload = function () {
                     return ($(this).text().toLowerCase() === name.toLowerCase());
                 }).eq(0).closest('table');
 
-                $('<th><a href="javascript:void(0);" class="noWrap">Andel</a></th>').insertAfter($stockTable.find('th').eq(2)).css('width', 30);
+                $('<th><a href="javascript:void(0);" class="noWrap">Andel %</a></th>').insertAfter($stockTable.find('th').eq(2)).css('width', 30);
 
                 $stockTable.find('tr.clientSortedRow')
                 .each(function () {
                     var $row = $(this),
                         marketValue = parseInt($row.find('> td').eq(8).text().replace(/\s/g, ''), 10);
-                    $('<td>' + niceRound(marketValue / marketTotal * 100, 2) + '%' + '</td>').insertAfter($row.find('td').eq(2));
+                    $('<td>' + niceRound(marketValue / marketTotal * 100, 2) + '</td>').insertAfter($row.find('td').eq(2));
 
                 });
             };
