@@ -1,4 +1,6 @@
 var AvanzaPlus = (function () {
+    var experiments = {};
+
     function AP () {}
 
     AP.prototype.round = function (num, decimals) {
@@ -30,15 +32,27 @@ var AvanzaPlus = (function () {
         return parseFloat(num.replace(/\s/g, '').replace(/,/g, '.'), 10);
     };
 
-    AP.prototype.onPageLoad = function (path, cb) {
-        if (new RegExp(path).test(location.pathname)) {
-            window.onload = cb;
-        }
-    };
-
     AP.prototype.getRandomColor = function () {
         var colors = ['#577AA6', '#009640', '#FDC55A'];
         return colors[this.randomNum(0, colors.length - 1)];
+    };
+
+    AP.prototype.onPageLoad = function (path, cb) {
+        if (new RegExp(path).test(location.pathname)) {
+            window.onload = cb.bind(this);
+        }
+    };
+
+    AP.prototype.experimental = function (feature, def) {
+        if (def === undefined) {
+            if (typeof experiments[feature] === 'function') {
+                experiments[feature].call(this);
+            } else {
+                throw new Error('No feature with that name.');
+            }
+        } else {
+            experiments[feature] = def;
+        }
     };
 
     return new AP();
