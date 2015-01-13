@@ -6,4 +6,4 @@ function injectScript(file, node) {
     th.appendChild(s);
 }
 
-injectScript(chrome.extension.getURL('/avzplus.concat.js'), 'body');
+injectScript(chrome.extension.getURL('/avzplus.min.js'), 'body');

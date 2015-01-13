@@ -1,4 +1,4 @@
-AvanzaPlus.onPageLoad('/mina-sidor/kontooversikt.([0-9]+).*', function () {
+AvanzaPlus.onPageLoad('/mina-sidor/kontooversikt.([0-9]{7}).*', function () {
     var self = this;
 
     // STOCK SHARE OF TOTAL HOLDINGS

@@ -1,10 +1,12 @@
 var gulp = require('gulp'),
+    uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     sass = require('gulp-sass');
 
 gulp.task('scripts', function () {
     return gulp.src('./js/*.js')
-        .pipe(concat('avzplus.concat.js'))
+        .pipe(concat('avzplus.min.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('./'));
 });
 

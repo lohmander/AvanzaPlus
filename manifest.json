@@ -2,7 +2,7 @@
   "name": "Avanza+",
   "description": "Makes Avanza a bit better",
   "version": "0.0.1",
-  "web_accessible_resources": ["/avzplus.concat.js"],
+  "web_accessible_resources": ["/avzplus.min.js"],
   "content_scripts": [
     {
       "matches": ["https://www.avanza.se/mina-sidor/kontooversikt.*"],
