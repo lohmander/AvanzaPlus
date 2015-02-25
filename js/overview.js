@@ -23,7 +23,6 @@ AvanzaPlus.onPageLoad('/mina-sidor/kontooversikt.([0-9]{7}).*', function () {
 
     // TOTAL YIELD TODAY IN CASH
     var addTotalYieldToday = function (table) {
-        // var marketValue = parseFloat($.trim(table.find('tfoot td').eq(4).text()).replace(/\u00a0/g, '').replace(',','.')),
         var marketValue = self.cleanParsedNum(table.find('tfoot td').eq(4).text()),
             yieldPercentage = self.cleanParsedNum(table.find('tfoot td').eq(2).text()),
             totalYield = Math.round((marketValue - marketValue/(yieldPercentage/100 + 1)) * 100) / 100,
