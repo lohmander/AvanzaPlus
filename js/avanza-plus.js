@@ -24,6 +24,10 @@ var AvanzaPlus = (function () {
         return dec.toString().replace('.', ',');
     };
 
+    AP.prototype.toPrice = function (num) {
+        return this.toCommaDecimal(num.toFixed(2));
+    };
+
     AP.prototype.cleanParsedNum = function (num) {
         if (typeof num === 'number') {
             return num;
