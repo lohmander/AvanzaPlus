@@ -1,4 +1,4 @@
-# AvanzaPlus
+# avanza-ext
 Lägger till en rad (en) funktioner till Avanzas hemsida.
 
 ## Installation
